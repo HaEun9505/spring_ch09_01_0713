@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+		
+	<bean id="logAop" class="com.haeun.aoptest.LogAop"></bean>
+	
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop">
+			<!-- 모든 클래스 안에 있는 -->
+			<aop:pointcut expression="within(com.haeun.aoptest.*)" id="publicM"/>
+			<!-- publicM으로 지정된 메소드 -->
+			<aop:around pointcut-ref="publicM" method="loggerAop"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+	<!-- Student 클래스로 만든 bean -->
+	<bean id="student" class="com.haeun.aoptest.Student">
+		<property name="name" value="홍길동"></property>
+		<property name="age" value="20"></property>
+		<property name="gradeNum" value="3"></property>
+		<property name="classNum" value="7"></property>
+	</bean>
+	
+	<bean id="worker" class="com.haeun.aoptest.Worker">
+		<property name="name" value="이순신"></property>
+		<property name="age" value="30"></property>
+		<property name="job" value="해군장군"></property>
+	
+	</bean>
+
+</beans>
