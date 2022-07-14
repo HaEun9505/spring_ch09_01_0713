@@ -1,38 +1,39 @@
+
 package com.haeun.aoptest;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-//°øÅë ±â´É Å¬·¡½º
+//ê³µí†µ ê¸°ëŠ¥ í´ë˜ìŠ¤
 public class LogAop {
 	
 	public Object loggerAop(ProceedingJoinPoint joinpoint) throws Throwable {
 		String signatureStr = joinpoint.getSignature().toShortString();
-		System.out.println(signatureStr + "°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.");
+		System.out.println(signatureStr + "ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		
-		long st = System.currentTimeMillis();	//ÇöÀç ½Ã°£
+		long st = System.currentTimeMillis();	//í˜„ì¬ ì‹œê°„
 		try {
-			Object obj = joinpoint.proceed();	//joinpoint (¸Ş¼Òµå)½ÇÇà
-			return obj;	//object·Î ¹İÈ¯
+			Object obj = joinpoint.proceed();	//joinpoint (ë©”ì†Œë“œ)ì‹¤í–‰
+			return obj;	//objectë¡œ ë°˜í™˜
 		}finally {
-			long et = System.currentTimeMillis();	//°æ°ú ½Ã°£
-			System.out.println(signatureStr + "°¡ Á¾·áµÇ¾ú½À´Ï´Ù.");
-			System.out.println(signatureStr + "°æ°ú½Ã°£ : " + (et-st));
+			long et = System.currentTimeMillis();	//ê²½ê³¼ ì‹œê°„
+			System.out.println(signatureStr + "ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+			System.out.println(signatureStr + "ê²½ê³¼ì‹œê°„ : " + (et-st));
 		}
 	}
-	//loggerAop ¸Ş¼Òµå ½ÇÇàÀü¿¡ ¸ÕÀú ½ÇÇà
+	//loggerAop ë©”ì†Œë“œ ì‹¤í–‰ì „ì— ë¨¼ì € ì‹¤í–‰
 	public void beforeAdvice(JoinPoint joinpoint) {	
-		System.out.println("beforeAdvice ½ÇÇà!");
+		System.out.println("beforeAdvice ì‹¤í–‰!");
 	}
-	//¸Ş¼Òµå ½ÇÇàÁß exception ÀÌ ¹ß»ıÇÏ¿©µµ advice½ÇÇà
+	//ë©”ì†Œë“œ ì‹¤í–‰ì¤‘ exception ì´ ë°œìƒí•˜ì—¬ë„ adviceì‹¤í–‰
 	public void afterAdvice(JoinPoint joinpoint) {	
-		System.out.println("afterAdvice ½ÇÇà!");
+		System.out.println("afterAdvice ì‹¤í–‰!");
 	}
-	//Á¤»óÀûÀ¸·Î ¸Ş¼Òµå ½ÇÇà ÈÄ¿¡ advice½ÇÇà
+	//ì •ìƒì ìœ¼ë¡œ ë©”ì†Œë“œ ì‹¤í–‰ í›„ì— adviceì‹¤í–‰
 	public void afterReturnAdvice(JoinPoint joinpoint) {	
-		System.out.println("afterReturnAdvice ½ÇÇà!");
+		System.out.println("afterReturnAdvice ì‹¤í–‰!");
 	}
-	// ¸Ş¼Òµå ½ÇÇàÁß exception ¹ß»ı½Ã advice½ÇÇà
+	// ë©”ì†Œë“œ ì‹¤í–‰ì¤‘ exception ë°œìƒì‹œ adviceì‹¤í–‰
 	public void afterThrowingAdvice(JoinPoint joinpoint) {	
-		System.out.println("afterThrowingAdvice ½ÇÇà!");
+		System.out.println("afterThrowingAdvice ì‹¤í–‰!");
 	}
 }

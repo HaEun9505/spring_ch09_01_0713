@@ -3,19 +3,19 @@ package com.haeun.aoptest;
 public class Student {
 	private String name;
 	private int age;
-	private int gradeNum;	//ÇĞ³â
-	private int classNum;		//¹İ
+	private int gradeNum;	//í•™ë…„
+	private int classNum;	//ë°˜
 	
 	public void getStudentInfo() {
-		System.out.println("ÀÌ¸§ : " + getName());
-		System.out.println("³ªÀÌ : " + getAge());
-		System.out.println("ÇĞ³â : " + getGradeNum());
-		System.out.println("¹İ : " + getClassNum());
+		System.out.println("ì´ë¦„ : " + getName());
+		System.out.println("ë‚˜ì´ : " + getAge());
+		System.out.println("í•™ë…„ : " + getGradeNum());
+		System.out.println("ë°˜ : " + getClassNum());
 		
 		try {
-			System.out.println(10/0);	//°­Á¦ ¿¡·¯ ¹ß»ı
+			System.out.println(10/0);	//ê°•ì œ ì—ëŸ¬ ë°œìƒ
 		}catch (Exception e) {
-			
+			// TODO: handle exception
 		}
 	}
 

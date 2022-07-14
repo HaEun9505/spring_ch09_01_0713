@@ -6,9 +6,9 @@ public class Worker {
 	private String job;
 	
 	public void getWorkerInfo() {
-		System.out.println("ÀÌ¸§ : "+ getName());
-		System.out.println("³ªÀÌ : "+ getAge());
-		System.out.println("Á÷¾÷ : "+ getJob());
+		System.out.println("ì´ë¦„ : " + getName());
+		System.out.println("ë‚˜ì´ : " + getAge());
+		System.out.println("ì§ì—… : " + getJob());
 	}
 	
 	public String getName() {
